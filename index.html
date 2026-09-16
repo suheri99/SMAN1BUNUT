@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Data Siswa - SMAN 1 Bunut</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Premium Background -->
+    <div class="background">
+        <div class="gold-particle" style="--x: 10%; --d: 15s; --s: 0.5;"></div>
+        <div class="gold-particle" style="--x: 25%; --d: 20s; --s: 1;"></div>
+        <div class="gold-particle" style="--x: 45%; --d: 18s; --s: 0.7;"></div>
+        <div class="gold-particle" style="--x: 65%; --d: 22s; --s: 0.9;"></div>
+        <div class="gold-particle" style="--x: 80%; --d: 16s; --s: 0.6;"></div>
+        <div class="gold-particle" style="--x: 92%; --d: 24s; --s: 1.1;"></div>
+        
+        <div class="glow-orb glow-1"></div>
+        <div class="glow-orb glow-2"></div>
+        <div class="glow-orb glow-3"></div>
+        
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Cursor Follower -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Left Side - Info Panel -->
+        <div class="info-panel">
+            <div class="crown-decoration">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 18H19L21 8L15 12L12 5L9 12L3 8L5 18Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M5 21H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            
+            <div class="info-content">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    PREMIUM EDITION
+                </div>
+                
+                <h1 class="info-title">
+                    Formulir Data
+                    <span class="gold-text">Siswa</span>
+                </h1>
+                
+                <div class="divider-line">
+                    <span class="line"></span>
+                    <span class="diamond"></span>
+                    <span class="line"></span>
+                </div>
+                
+                <p class="info-subtitle">
+                    Lengkapi data diri Anda dengan informasi yang akurat dan benar untuk keperluan administrasi sekolah SMAN 1 Bunut.
+                </p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Data Terenkripsi</h4>
+                            <p>Tersimpan aman di cloud</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Proses Cepat</h4>
+                            <p>Hanya butuh 2 menit</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Verifikasi Otomatis</h4>
+                            <p>Data langsung tersimpan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-footer">
+                <span>© 2026 SMAN 1 Bunut</span>
+                <div class="status-dot">
+                    <span></span> System Online
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Form -->
+        <div class="form-panel">
+            <div class="form-card">
+                <!-- Corner Decorations -->
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+                
+                <!-- Header dengan Logo Sekolah -->
+                <div class="form-header">
+                    <!-- Logo Sekolah dalam Kotak Persegi Panjang -->
+                    <div class="school-logo-box">
+                        <img src="logo-sekolah.png" alt="Logo SMAN 1 Pangkalan Kuras" class="school-logo-img" id="schoolLogo">
+                        <div class="logo-fallback" id="logoFallback">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M22 10V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V10" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M2 10L12 4L22 10L12 16L2 10Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M6 13V18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="logo-shine"></div>
+                    </div>
+                    
+                    <!-- Nama Sekolah -->
+                    <h2 class="school-name">SMAN 1 Bunut</h2>
+                    
+                    <!-- Divider Sekolah -->
+                    <div class="school-divider">
+                        <span class="line"></span>
+                        <span class="diamond"></span>
+                        <span class="line"></span>
+                    </div>
+                    
+                    <p class="form-subtitle-main">Data Kartu Pelajar</p>
+                    <p class="form-subtitle-small">Isi data dengan lengkap dan benar</p>
+                </div>
+
+                <!-- Step Indicator -->
+                <div class="step-indicator">
+                    <div class="step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span class="step-label">Data Diri</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span class="step-label">Kontak</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span class="step-label">Foto</span>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form id="dataForm" autocomplete="off" enctype="multipart/form-data">
+                    
+                    <!-- STEP 1: Data Diri -->
+                    <div class="form-step active" data-step="1">
+                        <!-- 1. Nama Lengkap -->
+                        <div class="form-group">
+                            <label for="nama">
+                                <span class="label-number">01</span>
+                                Nama Lengkap <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+                                <div class="input-border"></div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Kelas -->
+                        <div class="form-group">
+                            <label for="kelas">
+                                <span class="label-number">02</span>
+                                Kelas <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 7V17C3 18.1 3.9 19 5 19H19C20.1 19 21 18.1 21 17V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M3 7L12 2L21 7L12 12L3 7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                                </svg>
+                                <select id="kelas" name="kelas" required>
+                                    <option value="">Pilih kelas...</option>
+                                    <optgroup label="Kelas X">
+                                        <option value="X-1">X-1</option>
+                                        <option value="X-2">X-2</option>
+                                        <option value="X-3">X-3</option>
+                                        <option value="X-4">X-4</option>
+                                        <option value="X-5">X-5</option>
+                                        <option value="X-6">X-6</option>
+                                        <option value="X-7">X-7</option>
+                                    </optgroup>
+                                    <optgroup label="Kelas XI">
+                                        <option value="XI IPA 1">XI IPA 1</option>
+                                        <option value="XI IPA 2">XI IPA 2</option>
+                                        <option value="XI IPA 3">XI IPA 3</option>
+                                        <option value="XI IPS 1">XI IPS 1</option>
+                                        <option value="XI IPS 2">XI IPS 2</option>
+                                    </optgroup>
+                                    <optgroup label="Kelas XII">
+                                        <option value="XII IPA 1">XII IPA 1</option>
+                                        <option value="XII IPA 2">XII IPA 2</option>
+                                        <option value="XII IPA 3">XII IPA 3</option>
+                                        <option value="XII IPS 1">XII IPS 1</option>
+                                        <option value="XII IPS 2">XII IPS 2</option>
+                                    </optgroup>
+                                </select>
+                                <div class="input-border"></div>
+                            </div>
+                        </div>
+
+                        <!-- 3. NISN (FLEKSIBEL) -->
+                        <div class="form-group">
+                            <label for="nisn">
+                                <span class="label-number">03</span>
+                                NISN <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                                    <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M7 9H17M7 13H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <input type="text" id="nisn" name="nisn" placeholder="Masukkan NISN" required>
+                                <div class="input-border"></div>
+                            </div>
+                            <small class="hint">
+                                <svg viewBox="0 0 24 24" fill="none" width="12" height="12">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                Masukkan NISN Anda
+                            </small>
+                        </div>
+
+                        <!-- 4. Tempat & Tanggal Lahir -->
+                        <div class="form-group">
+                            <label>
+                                <span class="label-number">04</span>
+                                Tempat & Tanggal Lahir <span class="required">*</span>
+                            </label>
+                            <div class="form-row">
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                                        <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                    </svg>
+                                    <input type="text" id="tempatLahir" name="tempatLahir" placeholder="Kota kelahiran" required>
+                                    <div class="input-border"></div>
+                                </div>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M16 2V6M8 2V6M3 10H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                    <input type="date" id="tanggalLahir" name="tanggalLahir" required>
+                                    <div class="input-border"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Kontak -->
+                    <div class="form-step" data-step="2">
+                        <!-- 5. Alamat -->
+                        <div class="form-group">
+                            <label for="alamat">
+                                <span class="label-number">05</span>
+                                Alamat Lengkap <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" style="top: 16px;">
+                                    <path d="M3 12L12 3L21 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M5 10V20H19V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <textarea id="alamat" name="alamat" placeholder="Jalan, RT/RW, Kelurahan, Kecamatan, Kota" rows="3" required></textarea>
+                                <div class="input-border"></div>
+                            </div>
+                        </div>
+
+                        <!-- 6. Agama -->
+                        <div class="form-group">
+                            <label for="agama">
+                                <span class="label-number">06</span>
+                                Agama <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                                    <path d="M12 22V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <select id="agama" name="agama" required>
+                                    <option value="">Pilih agama...</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Kristen Protestan">Kristen Protestan</option>
+                                    <option value="Katolik">Katolik</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Buddha">Buddha</option>
+                                    <option value="Konghucu">Konghucu</option>
+                                </select>
+                                <div class="input-border"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Foto -->
+                    <div class="form-step" data-step="3">
+                        <div class="form-group">
+                            <label>
+                                <span class="label-number">07</span>
+                                Foto Seragam Putih Abu-Abu <span class="required">*</span>
+                            </label>
+                            <div class="upload-area" id="uploadArea">
+                                <input type="file" id="foto" name="foto" accept="image/*" required hidden>
+                                <div class="upload-content" id="uploadContent">
+                                    <div class="upload-icon-wrapper">
+                                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 15V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            <path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12 3V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                        <div class="upload-pulse"></div>
+                                    </div>
+                                    <p class="upload-title">Klik atau Drag & Drop Foto</p>
+                                    <p class="upload-subtitle">Pilih foto dengan seragam putih abu-abu</p>
+                                    <div class="upload-badges">
+                                        <span class="badge-item">JPG</span>
+                                        <span class="badge-item">PNG</span>
+                                        <span class="badge-item">Max 5MB</span>
+                                    </div>
+                                </div>
+                                <div class="preview-content" id="previewContent">
+                                    <div class="preview-image-wrapper">
+                                        <img id="previewImage" src="" alt="Preview">
+                                        <div class="preview-overlay"></div>
+                                    </div>
+                                    <button type="button" class="remove-btn" id="removeBtn">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                    <div class="preview-info">
+                                        <div class="file-info">
+                                            <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                                                <path d="M13 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V9L13 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                                            </svg>
+                                            <span id="fileName"></span>
+                                        </div>
+                                        <span id="fileSize" class="file-size"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terms -->
+                        <div class="terms-wrapper">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" id="terms" required>
+                                <span class="checkmark">
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span class="terms-text">
+                                    Saya menyatakan bahwa data yang saya isi adalah <strong>benar dan dapat dipertanggungjawabkan</strong>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="form-navigation">
+                        <button type="button" class="nav-btn prev-btn" id="prevBtn" style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Sebelumnya
+                        </button>
+                        
+                        <button type="button" class="nav-btn next-btn" id="nextBtn">
+                            Selanjutnya
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        
+                        <button type="submit" class="submit-btn" id="submitBtn" style="display: none;">
+                            <span class="btn-text">Kirim Data</span>
+                            <span class="btn-loader"></span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="btn-shine"></div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-crown">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 18H19L21 8L15 12L12 5L9 12L3 8L5 18Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M5 21H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2>Berhasil Terkirim!</h2>
+            <div class="divider-line">
+                <span class="line"></span>
+                <span class="diamond"></span>
+                <span class="line"></span>
+            </div>
+            <p>Data siswa telah berhasil disimpan ke database SMAN 1 Pangkalan Kuras.</p>
+            <button onclick="closeModal()" class="modal-btn">
+                Tutup
+                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 8V12M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
